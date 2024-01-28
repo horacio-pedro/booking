@@ -35,10 +35,12 @@ packages:
 # These entries can reference officially published versions as well as
 # forks / in-progress versions pinned to a git hash. For example:
 #
-# extra-deps:
-# - acme-missiles-0.3
-# - git: https://github.com/commercialhaskell/stack.git
-#   commit: e7b331f14bcffb8367cd58fbfc8b40ec7642100a
+extra-deps:
+- HaskellNet-SSL-0.3.4.4@sha256:6a1a3c6d3804e857d183e702214476a383628eac83eb4bcbc7d5c4b8a2e05bf3,1704
+- country-codes-0.1.4@sha256:c2aff9180f9049d97d3587160c99d6bd9df88e22dd3f4277f92e36050b467713,1653
+- connection-0.3.1@sha256:3dcbf2f10d1677d339267d6dacb38a24913622edf42b05f75a73f381610ddbfc,1563
+- shakespeare-2.0.30@sha256:203d2c94bb9d75dcf37751e45e1be591d245436e1dc3f259a44e7ba415371805,5060
+- tls-1.9.0@sha256:8ad332dc0224decb1b137bf6c9678b4f786487b9aaa5c9068cd3ad19d42c39a7,5571
 #
 # extra-deps: []
 
@@ -65,3 +67,5 @@ packages:
 #
 # Allow a newer minor version of GHC than the snapshot specifies
 # compiler-check: newer-minor
+allow-different-user: true
+allow-newer: true

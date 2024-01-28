@@ -25,6 +25,36 @@ dependencies:
 - servant-server
 - wai
 - warp
+- time
+- text
+- jwt 
+- servant-JuicyPixels
+- JuicyPixels
+- JuicyPixels-extra
+- persistent-mysql
+- esqueleto
+- persistent-template
+- wai-extra
+- mysql
+- containers
+- email-validate
+- http-types
+- persistent
+- http-conduit
+- bytestring
+- transformers
+- monad-logger
+- monad-control
+- country-codes
+- pwstore-fast
+- random
+- vector
+- base64-bytestring
+- mtl 
+- HaskellNet
+- HaskellNet-SSL
+- blaze-html
+- blaze-markup
 
 ghc-options:
 - -Wall

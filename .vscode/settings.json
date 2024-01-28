@@ -1,0 +1,6 @@
+{
+    "haskell.hlint.executablePath": "Path\/To\/Executable",
+    "haskell.hlint.hints": ["Default", "Dollar", "Generalise"],
+    "haskell.hlint.ignore": ["Redundant do"],
+    "haskell.hlint.run": "onType"
+}

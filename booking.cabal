@@ -6,11 +6,11 @@ cabal-version: 2.2
 
 name:           booking
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/horacio-pedro/booking#readme>
-homepage:       https://github.com/horacio-pedro/booking#readme
-bug-reports:    https://github.com/horacio-pedro/booking/issues
+description:    Please see the README on GitHub at <https://github.com/githubuser/booking#readme>
+homepage:       https://github.com/githubuser/horacio-pedro#readme
+bug-reports:    https://github.com/githubuser/horacio-pedro/issues
 author:         Horácio Pedro
-maintainer:     horacio-pedro@outlook.com
+maintainer:     horacio-developer@outlook.com
 copyright:      2024 Horácio Pedro
 license:        BSD-3-Clause
 license-file:   LICENSE
@@ -21,11 +21,79 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/horacio-pedro/booking
+  location: https://github.com/githubuser/horacio-pedro
 
 library
   exposed-modules:
-      Main
+      Configs.ConfigTypes
+      Configs.ElasticSearch.BookingSystem
+      Configs.ElasticSearch.ContentAdmin
+      Configs.MySQL
+      Domains.BookingDomain.Bookable.API
+      Domains.BookingDomain.Bookable.DataTypes
+      Domains.BookingDomain.Bookable.Interpreter
+      Domains.BookingDomain.Cancellation.API
+      Domains.BookingDomain.Cancellation.DataTypes
+      Domains.BookingDomain.Cancellation.Interpreter
+      Domains.BookingDomain.Property.API
+      Domains.BookingDomain.Property.DataTypes
+      Domains.BookingDomain.Property.Interpreter
+      Domains.BookingDomain.Reservation.API
+      Domains.BookingDomain.Reservation.DataTypes
+      Domains.BookingDomain.Reservation.Interpreter
+      Domains.ContentAdminDomain.Article.API
+      Domains.ContentAdminDomain.Article.DataTypes
+      Domains.ContentAdminDomain.Article.Interpreter
+      Domains.SideServices.API
+      Domains.SideServices.DataTypes
+      Domains.SideServices.Interpreter
+      Domains.UserDomain.Review.API
+      Domains.UserDomain.Review.DataTypes
+      Domains.UserDomain.Review.Interpreter
+      Domains.UserDomain.User.API
+      Domains.UserDomain.User.DataTypes
+      Domains.UserDomain.User.Interpreter
+      HelperLibs.ElasticSearch.BodyBuilder
+      HelperLibs.ElasticSearch.BookableRepo
+      HelperLibs.ElasticSearch.ContentAdminRepo
+      HelperLibs.ElasticSearch.IndexScripts
+      HelperLibs.ElasticSearch.PropertyRepo
+      HelperLibs.ElasticSearch.Request
+      HelperLibs.ElasticSearch.ResponseParser
+      HelperLibs.Interpreters.Bookable
+      HelperLibs.Interpreters.BookingDomain
+      HelperLibs.Interpreters.Cancellation
+      HelperLibs.Interpreters.ContentAdmin
+      HelperLibs.Interpreters.Property
+      HelperLibs.Interpreters.Reservation
+      HelperLibs.Interpreters.Review
+      HelperLibs.Interpreters.SideServices
+      HelperLibs.Interpreters.User
+      HelperLibs.MySQL.ActionRunner
+      HelperLibs.MySQL.CancellationRepo
+      HelperLibs.MySQL.ReservationRepo
+      HelperLibs.MySQL.ReviewRepo
+      HelperLibs.MySQL.SideServicesRepo
+      HelperLibs.MySQL.UserRepo
+      HelperLibs.SCalendar.BreadCrumbs
+      HelperLibs.SCalendar.DataTypes
+      HelperLibs.SCalendar.Internal
+      HelperLibs.SCalendar.Operations
+      Repositories.BookableRepo.Operations
+      Repositories.CancellationRepo.Operations
+      Repositories.ContentAdminRepo.Operations
+      Repositories.PropertyRepo.Operations
+      Repositories.ReservationRepo.Operations
+      Repositories.ReviewRepo.Operations
+      Repositories.SideServicesRepo.Operations
+      Repositories.UserRepo.Operations
+      Schemas.ElasticSearch.BookingMappings
+      Schemas.ElasticSearch.ContentAdminMappings
+      Schemas.SQL.BookableImage
+      Schemas.SQL.DbTypes
+      Schemas.SQL.PropertyImage
+      Schemas.SQL.Reservation
+      Schemas.SQL.User
   other-modules:
       Paths_booking
   autogen-modules:
@@ -34,10 +102,40 @@ library
       src
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
   build-depends:
-      aeson
+      HaskellNet
+    , HaskellNet-SSL
+    , JuicyPixels
+    , JuicyPixels-extra
+    , aeson
     , base >=4.7 && <5
+    , base64-bytestring
+    , blaze-html
+    , blaze-markup
+    , bytestring
+    , containers
+    , country-codes
+    , email-validate
+    , esqueleto
+    , http-conduit
+    , http-types
+    , jwt
+    , monad-control
+    , monad-logger
+    , mtl
+    , mysql
+    , persistent
+    , persistent-mysql
+    , persistent-template
+    , pwstore-fast
+    , random
+    , servant-JuicyPixels
     , servant-server
+    , text
+    , time
+    , transformers
+    , vector
     , wai
+    , wai-extra
     , warp
   default-language: Haskell2010
 
@@ -51,11 +149,41 @@ executable booking-exe
       app
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      aeson
+      HaskellNet
+    , HaskellNet-SSL
+    , JuicyPixels
+    , JuicyPixels-extra
+    , aeson
     , base
+    , base64-bytestring
+    , blaze-html
+    , blaze-markup
     , booking
+    , bytestring
+    , containers
+    , country-codes
+    , email-validate
+    , esqueleto
+    , http-conduit
+    , http-types
+    , jwt
+    , monad-control
+    , monad-logger
+    , mtl
+    , mysql
+    , persistent
+    , persistent-mysql
+    , persistent-template
+    , pwstore-fast
+    , random
+    , servant-JuicyPixels
     , servant-server
+    , text
+    , time
+    , transformers
+    , vector
     , wai
+    , wai-extra
     , warp
   default-language: Haskell2010
 
@@ -70,13 +198,43 @@ test-suite booking-test
       test
   ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      aeson
+      HaskellNet
+    , HaskellNet-SSL
+    , JuicyPixels
+    , JuicyPixels-extra
+    , aeson
     , base
+    , base64-bytestring
+    , blaze-html
+    , blaze-markup
     , booking
+    , bytestring
+    , containers
+    , country-codes
+    , email-validate
+    , esqueleto
     , hspec
     , hspec-wai
     , hspec-wai-json
+    , http-conduit
+    , http-types
+    , jwt
+    , monad-control
+    , monad-logger
+    , mtl
+    , mysql
+    , persistent
+    , persistent-mysql
+    , persistent-template
+    , pwstore-fast
+    , random
+    , servant-JuicyPixels
     , servant-server
+    , text
+    , time
+    , transformers
+    , vector
     , wai
+    , wai-extra
     , warp
   default-language: Haskell2010
